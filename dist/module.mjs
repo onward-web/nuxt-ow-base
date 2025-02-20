@@ -1,12 +1,16 @@
-import jiti from "file:///home/admin/web/autopart.onward-web.pp.ua/public_html/nuxt-ow-base/node_modules/.pnpm/jiti@1.21.7/node_modules/jiti/lib/index.js";
+import { defineNuxtModule, createResolver, addPlugin } from '@nuxt/kit';
 
-/** @type {import("/home/admin/web/autopart.onward-web.pp.ua/public_html/nuxt-ow-base/src/module")} */
-const _module = jiti(null, {
-  "esmResolve": true,
-  "interopDefault": true,
-  "alias": {
-    "nuxt-ow-base": "/home/admin/web/autopart.onward-web.pp.ua/public_html/nuxt-ow-base"
+const module = defineNuxtModule({
+  meta: {
+    name: "nuxt-ow-base",
+    configKey: "nuxtOwBase"
+  },
+  // Default configuration options of the Nuxt module
+  defaults: {},
+  setup(_options, _nuxt) {
+    const resolver = createResolver(import.meta.url);
+    addPlugin(resolver.resolve("./runtime/plugin"));
   }
-})("/home/admin/web/autopart.onward-web.pp.ua/public_html/nuxt-ow-base/src/module.ts");
+});
 
-export default _module;
+export { module as default };
