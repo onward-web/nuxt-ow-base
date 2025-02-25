@@ -1,4 +1,4 @@
-import { defineNuxtPlugin } from '#app'
+import { defineNuxtPlugin } from '#app';
 
 export default defineNuxtPlugin((_nuxtApp) => {
   const { currentRoute } = useRouter();
@@ -68,9 +68,6 @@ export default defineNuxtPlugin((_nuxtApp) => {
 
 
 
-
-
-
   return {
     provide: {
       isIndexRoute: isIndexRoute,
@@ -106,6 +103,9 @@ declare module 'vue' {
     $getPhoneByMark: array
   }
 }
+
+
+
 
 
 
